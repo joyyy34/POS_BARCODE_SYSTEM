@@ -1,3 +1,5 @@
+joy pos.php
+
 <?php
 ob_start();
 include_once 'connectdb.php';
@@ -24,31 +26,6 @@ $output.='<option value="' .$row["pid"].'">' .$row["product"]. '</option>';
 return $output; 
 
 }
-
-  $id=$_GET["id"];
-
-  $select = $pdo->prepare("select * from tbl_invoice where invoice_id = $id");
-  $select->execute();
-  $row = $select->fetch(PDO::FETCH_ASSOC);
-  
-  $order_date = date('Y-m-d', strtotime($row['order_date']));
-  
-  $subtotal   = $row['subtotal'];
-  $sgst       = $row['sgst'];
-  $cgst       = $row['cgst'];
-  $discount   = $row['discount'];
-  $total      = $row['total'];
-  $paid       = $row['paid'];
-  $due        = $row['due'];
-
-  $payment_type = $row['payment_type'];
-  
-  $select = $pdo->prepare("select * from tbl_invoice_details where invoice_id=$id");
-  $select->execute();
-  $row_invoice_details = $select->fetchAll(PDO::FETCH_ASSOC);
-
-
-
 
  if(isset($_POST['btnsaveorder'])) {
 
@@ -163,7 +140,7 @@ $row=$select->fetch(PDO::FETCH_OBJ);
        top:0;
       z-index:1;
 
-
+      
 }
 
    table {border-collapse:collapse; width: 100px;}
@@ -261,7 +238,7 @@ $row=$select->fetch(PDO::FETCH_OBJ);
                       <div class="input-group-prepend">
                         <span class="input-group-text">SUBTOTAL(Rs)</span>
                       </div>
-                      <input type="text" class="form-control" name="txtsubtotal" value="<?php  echo $row->subtotal;?>" id="txtsubtotal_id" readonly>
+                      <input type="text" class="form-control" name="txtsubtotal" id="txtsubtotal_id" readonly>
                       <div class="input-group-append">
                         <span class="input-group-text">Rs</span>
                       </div>
@@ -338,7 +315,7 @@ $row=$select->fetch(PDO::FETCH_OBJ);
                       <div class="input-group-prepend">
                         <span class="input-group-text">TOTAL(Rs)</span>
                       </div>
-                      <input type="text" class="form-control form-control-lg total"  name="txttotal" value="<?php  echo $row->total;?>" id="txttotal" readonly>
+                      <input type="text" class="form-control form-control-lg total" name="txttotal" id="txttotal" readonly>
                       <div class="input-group-append">
                         <span class="input-group-text">Rs</span>
                       </div>
@@ -375,7 +352,7 @@ $row=$select->fetch(PDO::FETCH_OBJ);
                       <div class="input-group-prepend">
                         <span class="input-group-text">DUE(Rs)</span>
                       </div>
-                      <input type="text" class="form-control" name="txtdue" value="<?php  echo $row->due;?>" id="txtdue" readonly>
+                      <input type="text" class="form-control" name="txtdue" id="txtdue" readonly>
                       <div class="input-group-append">
                         <span class="input-group-text">Rs</span>
                       </div>
@@ -387,7 +364,7 @@ $row=$select->fetch(PDO::FETCH_OBJ);
                       <div class="input-group-prepend">
                         <span class="input-group-text">PAID(Rs)</span>
                       </div>
-                      <input type="text" class="form-control" name="txtpaid" value="<?php  echo $row->paid;?>" id="txtpaid">
+                      <input type="text" class="form-control" name="txtpaid" id="txtpaid">
                       <div class="input-group-append">
                         <span class="input-group-text">Rs</span>
                       </div>
@@ -410,7 +387,7 @@ $row=$select->fetch(PDO::FETCH_OBJ);
 
 <div class="text-center">
   <div class="text-center">
-    <button type="submit" class="btn btn-info" name="btnupdateorder">Update Order</button>
+    <button type="submit" class="btn btn-success" name="btnsaveorder">Save Order</button>
   </div>
 </div>
 
