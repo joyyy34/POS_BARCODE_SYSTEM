@@ -1,4 +1,4 @@
-joy pos.php
+
 
 <?php
 ob_start();
@@ -178,9 +178,9 @@ $row=$select->fetch(PDO::FETCH_OBJ);
            
              
               
-            <div class="card card-primary card-outline">
+            <div class="card card-danger card-outline">
               <div class="card-header">
-                <h5 class="m-0">POS</h5>
+                <h5 class="m-0">Edit Order POS</h5>
               </div>
               <div class="card-body">
 
@@ -238,11 +238,12 @@ $row=$select->fetch(PDO::FETCH_OBJ);
                       <div class="input-group-prepend">
                         <span class="input-group-text">SUBTOTAL(Rs)</span>
                       </div>
-                      <input type="text" class="form-control" name="txtsubtotal" id="txtsubtotal_id" readonly>
+                      <input type="text" class="form-control" name="txtsubtotal" value="<?php  echo $subtotal;?>" id="txtsubtotal_id" readonly>
                       <div class="input-group-append">
                         <span class="input-group-text">Rs</span>
                       </div>
-                    </div>
+                      </div>
+
 
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -315,7 +316,7 @@ $row=$select->fetch(PDO::FETCH_OBJ);
                       <div class="input-group-prepend">
                         <span class="input-group-text">TOTAL(Rs)</span>
                       </div>
-                      <input type="text" class="form-control form-control-lg total" name="txttotal" id="txttotal" readonly>
+                      <input type="text" class="form-control form-control-lg total" name="txttotal" value="<?php  echo $total;?>" id="txttotal" readonly>
                       <div class="input-group-append">
                         <span class="input-group-text">Rs</span>
                       </div>
@@ -352,7 +353,7 @@ $row=$select->fetch(PDO::FETCH_OBJ);
                       <div class="input-group-prepend">
                         <span class="input-group-text">DUE(Rs)</span>
                       </div>
-                      <input type="text" class="form-control" name="txtdue" id="txtdue" readonly>
+                      <input type="text" class="form-control" name="txtdue" value="<?php  echo $due;?>" id="txtdue" readonly>
                       <div class="input-group-append">
                         <span class="input-group-text">Rs</span>
                       </div>
@@ -364,21 +365,14 @@ $row=$select->fetch(PDO::FETCH_OBJ);
                       <div class="input-group-prepend">
                         <span class="input-group-text">PAID(Rs)</span>
                       </div>
-                      <input type="text" class="form-control" name="txtpaid" id="txtpaid">
+                      <input type="text" class="form-control" name="txtpaid" value="<?php  echo $paid;?>" id="txtpaid">
                       <div class="input-group-append">
                         <span class="input-group-text">Rs</span>
                       </div>
                     </div>
 
                      
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                        <i class="fa fa-user"></i></span>
-                      </div>
-                      <input type="text" name="customername"  placeholder="Customer Name" id="customername" class="form-control" required="true">
-                    </div>
-
+                
 
 
 
@@ -387,7 +381,8 @@ $row=$select->fetch(PDO::FETCH_OBJ);
 
 <div class="text-center">
   <div class="text-center">
-    <button type="submit" class="btn btn-success" name="btnsaveorder">Save Order</button>
+    <button type="submit" class="btn btn-info" name="btnsupdateorder">Update Order</button>
+
   </div>
 </div>
 
